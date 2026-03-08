@@ -3,297 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С 8 Марта! Поздравление для прекрасных женщин</title>
+    <title>С 8 Марта, любимая!</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Georgia', 'Times New Roman', 'Segoe UI', serif;
-            background: linear-gradient(145deg, #fce4ec 0%, #ffe0b5 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            position: relative;
         }
-
-        /* Нежный шум для фона */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="10" cy="10" r="2" fill="white" opacity="0.3"/><circle cx="90" cy="30" r="3" fill="white" opacity="0.2"/><circle cx="40" cy="80" r="4" fill="white" opacity="0.2"/><circle cx="70" cy="70" r="2" fill="white" opacity="0.3"/><circle cx="20" cy="50" r="2" fill="white" opacity="0.2"/></svg>');
-            opacity: 0.5;
-            pointer-events: none;
-        }
-
+        
         .card {
-            max-width: 750px;
+            max-width: 600px;
             width: 100%;
-            background: rgba(255, 250, 245, 0.85);
-            backdrop-filter: blur(12px);
-            border-radius: 60px 60px 40px 40px;
-            padding: 50px 40px;
-            box-shadow: 0 30px 60px rgba(180, 100, 120, 0.25),
-                        0 0 0 2px rgba(255, 255, 255, 0.7) inset;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             text-align: center;
             position: relative;
-            z-index: 2;
-            border: 1px solid rgba(255, 215, 220, 0.5);
+            overflow: hidden;
+            animation: appear 1s ease-out;
         }
-
-        /* Венок из цветов */
-        .flower-wreath {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 50px;
-            white-space: nowrap;
-            filter: drop-shadow(0 8px 12px rgba(0,0,0,0.1));
-            z-index: 5;
-            background: rgba(255,255,240,0.5);
-            padding: 10px 30px;
-            border-radius: 100px;
-            backdrop-filter: blur(4px);
-            border: 2px solid white;
-            letter-spacing: 15px;
-            line-height: 1;
+        
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
-        /* Декоративные элементы по углам */
-        .corner-flower {
+        
+        /* Цветочный декор */
+        .flowers {
             position: absolute;
-            font-size: 35px;
-            opacity: 0.4;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .flower {
+            position: absolute;
+            font-size: 24px;
+            animation: float 6s infinite;
+        }
+        
+        .flower1 { top: 10px; left: 10px; animation-delay: 0s; }
+        .flower2 { top: 10px; right: 10px; animation-delay: 1s; }
+        .flower3 { bottom: 10px; left: 10px; animation-delay: 2s; }
+        .flower4 { bottom: 10px; right: 10px; animation-delay: 3s; }
+        .flower5 { top: 50%; left: 5px; animation-delay: 4s; }
+        .flower6 { top: 50%; right: 5px; animation-delay: 5s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        h1 {
+            font-size: 48px;
+            color: #d44c9c;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .greeting {
+            font-size: 32px;
+            color: #6b4e71;
+            margin-bottom: 30px;
+            font-weight: 300;
+            position: relative;
             z-index: 1;
         }
-        .corner1 { top: 15px; left: 15px; transform: rotate(-15deg); }
-        .corner2 { top: 15px; right: 15px; transform: rotate(15deg); }
-        .corner3 { bottom: 15px; left: 15px; transform: rotate(15deg); }
-        .corner4 { bottom: 15px; right: 15px; transform: rotate(-15deg); }
-
-        h1 {
-            font-size: 56px;
-            color: #b3425a;
-            margin: 30px 0 15px;
-            text-shadow: 2px 2px 0 #fff5f0, 5px 5px 10px rgba(190, 90, 110, 0.2);
-            font-weight: 500;
-            letter-spacing: 3px;
+        
+        .message {
+            background: linear-gradient(135deg, #f6d5f7 0%, #fbe9d2 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            font-size: 20px;
+            line-height: 1.6;
+            color: #4a2c4a;
+            box-shadow: 0 10px 30px rgba(212, 76, 156, 0.2);
             position: relative;
-            z-index: 3;
+            z-index: 1;
+            border: 2px solid rgba(255,255,255,0.5);
         }
-
-        .subhead {
-            font-size: 26px;
-            color: #9d6174;
-            margin-bottom: 25px;
-            font-style: italic;
-            font-family: 'Georgia', cursive;
-            border-bottom: 2px dashed #fbc1cb;
-            border-top: 2px dashed #fbc1cb;
-            padding: 15px 0;
-            display: inline-block;
-            width: 80%;
+        
+        .message p {
+            margin-bottom: 15px;
         }
-
-        .greeting-text {
-            background: rgba(255, 235, 225, 0.7);
-            border-radius: 50px 20px 50px 20px;
-            padding: 35px 30px;
-            margin: 25px 0;
-            font-size: 22px;
-            line-height: 1.7;
-            color: #472e36;
-            border: 2px solid white;
-            box-shadow: 0 15px 25px rgba(170, 100, 120, 0.15);
-            text-align: left;
-            font-family: 'Segoe UI', 'Arial', sans-serif;
-        }
-
-        .greeting-text p {
-            margin-bottom: 22px;
-        }
-
-        .greeting-text p:last-child {
+        
+        .message p:last-child {
             margin-bottom: 0;
-            text-align: center;
-            font-size: 30px;
-            letter-spacing: 8px;
         }
-
-        .signature {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0 10px;
-            font-size: 24px;
-            color: #b85c74;
+        
+        .heart {
+            font-size: 50px;
+            animation: heartbeat 1.5s infinite;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #d44c9c 0%, #b3446c 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(212, 76, 156, 0.4);
+            position: relative;
+            z-index: 1;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 76, 156, 0.6);
+        }
+        
+        .button:active {
+            transform: translateY(0);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: #b3446c;
+            font-size: 18px;
+            position: relative;
+            z-index: 1;
             font-style: italic;
         }
-
-        .signature span {
-            font-size: 40px;
-            animation: sparkle 3s infinite;
+        
+        .music-note {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 30px;
+            opacity: 0.5;
+            animation: spin 10s linear infinite;
+            z-index: 1;
         }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.2); text-shadow: 0 0 10px gold; }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
-
-        .flowers-line {
-            font-size: 40px;
-            margin: 20px 0 10px;
-            letter-spacing: 20px;
-            filter: drop-shadow(0 4px 6px #faaac7);
-        }
-
-        .footer-note {
-            margin-top: 25px;
-            font-size: 19px;
-            color: #946b78;
-            background: rgba(255, 240, 235, 0.8);
-            padding: 12px 25px;
-            border-radius: 40px;
-            display: inline-block;
-            border: 2px solid white;
-            backdrop-filter: blur(5px);
-        }
-
-        /* Анимация для легкого мерцания */
-        .shimmer {
-            animation: shimmer 4s infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        /* Простые падающие цветочки (фон) */
-        .floating-flowers {
+        
+        /* Падающие лепестки */
+        .petals {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1;
+            z-index: 0;
         }
-        .float-item {
+        
+        .petal {
             position: absolute;
-            color: rgba(240, 150, 170, 0.25);
-            font-size: 40px;
-            animation: floatVertical 15s linear infinite;
+            color: #ffb6c1;
+            font-size: 20px;
+            animation: fall linear infinite;
         }
-        @keyframes floatVertical {
-            0% { transform: translateY(-10vh) rotate(0deg); }
-            100% { transform: translateY(110vh) rotate(360deg); }
-        }
-
-        /* Адаптация */
-        @media (max-width: 600px) {
-            .card {
-                padding: 40px 20px;
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
             }
+        }
+        
+        /* Медиа-запросы для мобильных */
+        @media (max-width: 480px) {
             h1 {
-                font-size: 44px;
-            }
-            .subhead {
-                font-size: 22px;
-                width: 100%;
-            }
-            .greeting-text {
-                font-size: 19px;
-                padding: 25px 18px;
-            }
-            .flower-wreath {
                 font-size: 36px;
-                letter-spacing: 8px;
-                padding: 8px 16px;
             }
-            .flowers-line {
-                font-size: 30px;
-                letter-spacing: 12px;
+            
+            .greeting {
+                font-size: 24px;
+            }
+            
+            .message {
+                font-size: 18px;
+                padding: 20px;
+            }
+            
+            .card {
+                padding: 20px 15px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Очень легкие фоновые цветы -->
-    <div class="floating-flowers" id="floatBg"></div>
-
-    <!-- Основная открытка -->
     <div class="card">
-        <!-- Венок сверху -->
-        <div class="flower-wreath shimmer">
-            🌸 🌷 🌹 🌺
+        <!-- Декоративные цветы -->
+        <div class="flowers">
+            <div class="flower flower1">🌸</div>
+            <div class="flower flower2">🌷</div>
+            <div class="flower flower3">🌹</div>
+            <div class="flower flower4">🌺</div>
+            <div class="flower flower5">🌼</div>
+            <div class="flower flower6">🌻</div>
         </div>
-
-        <!-- Угловые цветы (декор) -->
-        <div class="corner-flower corner1">🌼</div>
-        <div class="corner-flower corner2">🌻</div>
-        <div class="corner-flower corner3">🌷</div>
-        <div class="corner-flower corner4">🌸</div>
-
-        <!-- Главный заголовок -->
-        <h1>С 8 Марта!</h1>
-        <div class="subhead">Дорогие женщины</div>
-
-        <!-- Основное поздравление (для всех) -->
-        <div class="greeting-text">
-            <p>✨ От всей души поздравляем вас с Международным женским днём! ✨</p>
-            <p>Вы — источник вдохновения, тепла и красоты. Спасибо за вашу мудрость, доброту, терпение и нежность. Вы делаете мир ярче, уютнее и добрее.</p>
-            <p>Желаем вам весеннего настроения, цветущего счастья, улыбок, любви и исполнения самых заветных желаний. Пусть каждый день дарит приятные сюрпризы, а рядом будут только любимые и любящие люди.</p>
-            <p>🌷 С праздником, прекрасные! 🌷</p>
+        
+        <!-- Падающие лепестки (будут добавлены скриптом) -->
+        <div class="petals" id="petals"></div>
+        
+        <!-- Основной контент -->
+        <h1>🌸 8 Марта 🌸</h1>
+        <div class="greeting">Дорогая и любимая!</div>
+        
+        <div class="heart">❤️</div>
+        
+        <div class="message" id="message">
+            <p>С праздником весны, нежности и красоты!</p>
+            <p>Ты — самое прекрасное, что есть в моей жизни. Твоя улыбка согревает лучше солнца, а глаза сияют ярче звёзд.</p>
+            <p>Желаю тебе океан счастья, море улыбок и бесконечной любви. Пусть каждый день дарит радость, а все мечты обязательно сбудутся!</p>
+            <p>🌷🌷🌷</p>
         </div>
-
-        <!-- Красивая строка цветов -->
-        <div class="flowers-line">
-            🌸 🌼 🌺 🌷 🌹
+        
+        <div class="heart">❤️</div>
+        
+        <!-- Кнопка для сюрприза -->
+        <button class="button" onclick="showSurprise()">Нажми для сюрприза ✨</button>
+        
+        <div class="footer">
+            С любовью, твой человек 💕
         </div>
-
-        <!-- Подпись -->
-        <div class="signature">
-            <span>💐</span> С любовью и восхищением <span>💐</span>
-        </div>
-
-        <!-- Нижний колонтитул -->
-        <div class="footer-note">
-            8 марта 2026
-        </div>
+        
+        <!-- Музыкальная нота (декор) -->
+        <div class="music-note">🎵</div>
     </div>
 
     <script>
-        // Создание фоновых плавающих цветов (очень прозрачных)
-        function createFloatingBg() {
-            const container = document.getElementById('floatBg');
-            const count = 15;
-            const flowers = ['🌸', '🌷', '🌹', '🌼', '🌻', '🌸', '🌺', '🌸', '🌷', '🌼'];
-
-            for (let i = 0; i < count; i++) {
-                const float = document.createElement('div');
-                float.className = 'float-item';
-                float.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
-                float.style.left = Math.random() * 100 + '%';
-                float.style.animationDuration = Math.random() * 20 + 15 + 's'; // 15-35 сек
-                float.style.animationDelay = Math.random() * 10 + 's';
-                float.style.fontSize = Math.random() * 30 + 25 + 'px';
-                float.style.opacity = '0.15'; // очень прозрачные
-                container.appendChild(float);
+        // Создание падающих лепестков
+        function createPetals() {
+            const petalsContainer = document.getElementById('petals');
+            const petalCount = 30;
+            
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.innerHTML = ['🌸', '🌷', '🌹', '🌺', '🌼', '🌻'][Math.floor(Math.random() * 6)];
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.animationDuration = Math.random() * 3 + 2 + 's';
+                petal.style.animationDelay = Math.random() * 5 + 's';
+                petal.style.fontSize = Math.random() * 20 + 15 + 'px';
+                petal.style.opacity = Math.random() * 0.5 + 0.3;
+                petalsContainer.appendChild(petal);
             }
         }
-
-        window.onload = function() {
-            createFloatingBg();
+        
+        // Функция для сюрприза
+        function showSurprise() {
+            // Создаем конфетти из цветов
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const flower = document.createElement('div');
+                    flower.style.position = 'fixed';
+                    flower.style.left = Math.random() * 100 + '%';
+                    flower.style.top = '-50px';
+                    flower.style.fontSize = Math.random() * 30 + 20 + 'px';
+                    flower.style.zIndex = '9999';
+                    flower.style.animation = 'fall 2s linear forwards';
+                    flower.innerHTML = ['🌸', '🌷', '🌹', '🌺', '🌼', '🌻', '💐', '✨'][Math.floor(Math.random() * 8)];
+                    document.body.appendChild(flower);
+                    
+                    setTimeout(() => {
+                        flower.remove();
+                    }, 2000);
+                }, i * 100);
+            }
+            
+            // Меняем текст поздравления
+            const message = document.getElementById('message');
+            message.style.transform = 'scale(1.1)';
+            message.style.transition = 'all 0.3s';
+            
+            setTimeout(() => {
+                message.innerHTML = `
+                    <p>🎉 СЮРПРИЗ! 🎉</p>
+                    <p>Ты самая удивительная девушка в мире!</p>
+                    <p>Пусть этот день будет таким же прекрасным, как ты 💖</p>
+                    <p>✨🌷✨🌷✨🌷✨</p>
+                `;
+                message.style.transform = 'scale(1)';
+            }, 300);
+            
+            // Возвращаем оригинальный текст через 5 секунд
+            setTimeout(() => {
+                message.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    message.innerHTML = `
+                        <p>С праздником весны, нежности и красоты!</p>
+                        <p>Ты — самое прекрасное, что есть в моей жизни. Твоя улыбка согревает лучше солнца, а глаза сияют ярче звёзд.</p>
+                        <p>Желаю тебе океан счастья, море улыбок и бесконечной любви. Пусть каждый день дарит радость, а все мечты обязательно сбудутся!</p>
+                        <p>🌷🌷🌷</p>
+                    `;
+                    message.style.transform = 'scale(1)';
+                }, 300);
+            }, 5000);
+        }
+        
+        // Добавляем музыку (опционально, но для авто-воспроизведения нужно взаимодействие пользователя)
+        function initMusic() {
+            // Создаем аудиоэлемент, но не запускаем автоматически
+            // (браузеры блокируют автовоспроизведение)
+            const audio = new Audio();
+            audio.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'; // Пример музыки
+            audio.loop = true;
+            audio.volume = 0.3;
+            
+            // Запускаем музыку при первом клике
+            document.addEventListener('click', function playMusic() {
+                audio.play().catch(e => console.log('Аудио не запустилось:', e));
+                document.removeEventListener('click', playMusic);
+            }, { once: true });
+        }
+        
+        // Запускаем создание лепестков при загрузке
+        window.onload = () => {
+            createPetals();
+            // initMusic(); // Раскомментируйте, если хотите добавить музыку
         };
+        
+        // Эффект печати текста (для красоты)
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
     </script>
 </body>
 </html>
